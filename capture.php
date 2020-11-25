@@ -77,9 +77,9 @@
         <div class="inner-width">
             <i class="menu-toggle-btn fas fa-bars"></i>
             <nav class="navigation-menu">
-                <a href="Home.html"><i class="fas fa-home home"></i> Home</a>
+                <a href="index.php"><i class="fas fa-home home"></i> Home</a>
                 <a href="Registration.html"><i class="fas fa-align-left about"></i>Registration</a>
-                <a href="Reports.html"><i class="fab fa-buffer works"></i>Online reports</a>
+                <a href="capyure.php"><i class="fab fa-buffer works"></i>Online reports</a>
                 <a href="About Us.html"><i class="fas fa-users team"></i>About</a>
                 <a href="Contact us.html"><i class="fas fa-headset contact"></i>Contact Us</a>
             </nav>
@@ -89,10 +89,9 @@
 
 <body>
     <h1>Welcome to the registration page</h1>
-
-    <p><a href="Registration.html">Fill out the form again?</a></p>
-    
+    <p><a href="Registration.html">Fill out the form again?</a></p>    
 </body>
+</html>
 <?php
         $servername = "localhost";
         $username = "root";
@@ -123,7 +122,7 @@ if ($conn->connect_error) {
 }
 $conn->close();
 ?>
-
+<html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title></title>
