@@ -89,6 +89,7 @@
 
 <body>
     <h1>Welcome to the registration page</h1>
+    
     <p><a href="Registration.html">Fill out the form again?</a></p>    
 </body>
 </html>
@@ -122,7 +123,6 @@ if ($conn->connect_error) {
 }
 $conn->close();
 ?>
-<html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title></title>

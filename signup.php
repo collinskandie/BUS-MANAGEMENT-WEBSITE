@@ -108,7 +108,7 @@ mysqli_close($link);
 <body>
     <h1>Registration successful</h1>
 
-    <p><a href="Login.html">Login?</a></p>
+    <p><a href="Index.html">Login?</a></p>
     creat a new account<a href="signup.html">Login?</a>
     
 </body>

@@ -3,20 +3,36 @@
 	<head>
 		<title>Reports</title>
     <style>
-table {
-border-collapse: collapse;
-width: 100%;
-color: #588c7e;
-font-family: monospace;
-font-size: 14px;
-text-align: left;
-}
-th {
-background-color: #588c7e;
-color: white;
-}
-tr:nth-child(even) {background-color: #f2f2f2}
-</style>
+      table { 
+            margin: 0 auto; 
+            font-size: large; 
+            border: 1px solid black; 
+        }  
+        h1 { 
+            text-align: center; 
+            color: #006600; 
+            font-size: xx-large; 
+            font-family: 'Gill Sans', 'Gill Sans MT',  
+            ' Calibri', 'Trebuchet MS', 'sans-serif'; 
+        } 
+  
+        td { 
+            background-color: #E4F5D4; 
+            border: 1px solid black; 
+        } 
+  
+        th, 
+        td { 
+            font-weight: bold; 
+            border: 1px solid black; 
+            padding: 10px; 
+            text-align: center; 
+        } 
+  
+        td { 
+            font-weight: lighter; 
+        } 
+    </style> 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title></title>
@@ -26,7 +42,7 @@ tr:nth-child(even) {background-color: #f2f2f2}
       <div class="inner-width">
         <i class="menu-toggle-btn fas fa-bars"></i>
          <nav class="navigation-menu">
-          <a href="index.php"><i class="fas fa-home home"></i> Home</a>
+          <a href="home.php"><i class="fas fa-home home"></i> Home</a>
           <a href="Registration.html"><i class="fas fa-align-left about"></i>Registration</a>
           <a href="display.php"><i class="fab fa-buffer works"></i>Online reports</a>
           <a href="About Us.html"><i class="fas fa-users team"></i>About</a>
@@ -47,30 +63,43 @@ tr:nth-child(even) {background-color: #f2f2f2}
         // Check connection
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
-          $sql1 = "SELECT * FROM owner_info";
-          echo "data fechted.";
-            $result1 = $conn->query($sql1);            
-            if ($result1->num_rows > 0) {
-              // output data of each row
-              while($row = $result1->fetch_assoc()) {
-                echo "Owner ID: " . $row["Owner_ID"]. " - Name: " . $row["owner_name"]. " Phone number" . $row["Phone_number"]. " Email Address" . $row["email_address"]. "<br>";
-              }
-            } else {
-              echo "0 results";
-            }
-            $sql2 = "SELECT * FROM vehicle_info";
-            $result2 = $conn->query($sql2);            
-            if ($result2->num_rows > 0) {
-              // output data of each row
-              while($row = $result2->fetch_assoc()) {
-                echo "RegNo: " . $row["vehicle_regno"]. " - Name: " . $row["vehicle_name"]. "Vehicle capacity" . $row["capacity"]. " Owner ID" . $row["Owner_ID"]. " Driver ID" . $row["Driver_ID"]. "Route Name" . $row["Route_Name"]. "Sacco Name" . $row["Sacco_Name"]. "<br>";
-              }
-            } else {
-              echo "0 results";
-            }
-          }
+          $result = "SELECT * FROM owner_info";
+         
   ?>
-    
+  <section> 
+        <h1>Vehicle Info</h1> 
+        <!-- TABLE CONSTRUCTION--> 
+        <table> 
+            <tr> 
+                <th>Vehicle REG</th> 
+                <th>Vehicle Name</th>
+                <th>Capacity</th>  
+                <th>Owner ID</th> 
+                <th>Driver ID </th> 
+                <th>Route Name </th>
+                <th>Sacco Name</th>
+            </tr> 
+              <?php   // LOOP TILL END OF DATA  
+                while($rows=$result->fetch_assoc()) 
+                { 
+             ?> 
+            <tr> 
+                <!--FETCHING DATA FROM EACH  
+                    ROW OF EVERY COLUMN--> 
+                <td><?php echo $rows['vehicle_regno'];?></td> 
+                <td><?php echo $rows['vehicle_names'];?></td> 
+                <td><?php echo $rows['capacity'];?></td> 
+                <td><?php echo $rows['Owner_ID'];?></td>
+                <td><?php echo $rows['Driver_ID'];?></td>
+                <td><?php echo $rows['Route_Name'];?></td>
+                <td><?php echo $rows['Sacco_Name'];?></td>  
+            </tr> 
+            <?php 
+                } 
+              }
+             ?> 
+        </table> 
+    </section>     
   </body>
   <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
